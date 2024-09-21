@@ -7,8 +7,10 @@ import androidx.room.Insert
 import androidx.room.Query
 
 
+
+
 @Dao
-interface TodoDao  {
+interface TodoDao {
 
     @Insert
     suspend fun insertTodo(todoEntity: TodoEntity)
@@ -16,9 +18,6 @@ interface TodoDao  {
     @Delete
     suspend fun deleteTodo(todoEntity: TodoEntity)
 
-    @Query("SELECT * FROM  todo_table")
-    fun getAllTodo() : LiveData<List<TodoEntity>>
-
-
-
+    @Query("SELECT * FROM todo_table")
+    fun getAllTodo(): LiveData<List<TodoEntity>>
 }

@@ -53,15 +53,22 @@ android {
 
 dependencies {
 
+    // Core and AndroidX libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    // Compose dependencies
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Unit testing dependencies
     testImplementation(libs.junit)
+
+    // Android testing dependencies
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -69,16 +76,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation ("androidx.room:room-runtime:2.2.6")
-    kapt ("androidx.room:room-compiler:2.2.6")
+    // Room Database dependencies - use the latest version (2.6.0)
+    implementation("androidx.room:room-runtime:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
+
+    // Room with Kotlin Coroutines support
+    implementation("androidx.room:room-ktx:2.6.0")
 
     // ViewModel (for MVVM architecture)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
-// LiveData (for reactive UI updates)
+    // LiveData (for reactive UI updates)
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+
+    // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.1")
-
-
-
 }
