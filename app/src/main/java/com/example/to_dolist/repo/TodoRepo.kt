@@ -16,4 +16,7 @@ class TodoRepo(private val todoDao : TodoDao) {
     fun getAllTodo() : LiveData<List<TodoEntity>>{
         return   todoDao.getAllTodo()
     }
+    suspend fun updateTodo(todoEntity: TodoEntity) {
+        todoDao.updateTodo(todoEntity)
+    }
 }

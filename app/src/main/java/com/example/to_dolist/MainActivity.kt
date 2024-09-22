@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.to_dolist.jetpack.HomeScreen
 import com.example.to_dolist.ui.theme.ToDoListTheme
 
 
@@ -39,87 +40,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ToDoListTheme {
-                // The main screen for the To-Do list
-                ToDoListScreen()
+                HomeScreen()
             }
         }
-    }
-}
-
-@Composable
-fun ToDoListScreen() {
-    // The list of to-do items and the input state
-    var taskText by remember { mutableStateOf(TextFieldValue("")) }
-    var todoItems by remember { mutableStateOf(listOf<String>()) }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        // Title of the screen
-        Text(
-            text = "To-Do List",
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-
-        // TextField for new task input
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextField(
-                value = taskText,
-                onValueChange = { taskText = it },
-                modifier = Modifier.weight(1f),
-                label = { Text("New Task") }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = {
-                if (taskText.text.isNotBlank()) {
-                    // Add the new task to the list
-                    todoItems = todoItems + taskText.text
-                    taskText = TextFieldValue("") // Reset the input field
-                }
-            }) {
-                Text("Add")
-            }
-        }
-
-        // List of to-do items
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            items(todoItems.size) { index ->
-                ToDoItem(task = todoItems[index])
-            }
-        }
-    }
-}
-
-@Composable
-fun ToDoItem(task: String) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Text(
-            text = task,
-            modifier = Modifier.padding(16.dp),
-            style = MaterialTheme.typography.bodyLarge
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ToDoListScreenPreview() {
-    ToDoListTheme {
-        ToDoListScreen()
     }
 }
