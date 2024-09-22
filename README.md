@@ -17,19 +17,7 @@ This is a simple To-Do List application built using Jetpack Compose, ViewModel, 
 - **Coroutines:** For asynchronous programming.
 
 ## Project Structure
-📂 to-do-list-app/
-├── 📁 db/
-│   ├── 📄 TodoEntity.kt        # Data model for to-do item.
-│   ├── 📄 TodoDao.kt           # DAO interface for accessing the database.
-│   └── 📄 TodoDb.kt            # Room Database setup.
-├── 📁 repo/
-│   └── 📄 TodoRepo.kt          # Repository class to manage data operations.
-├── 📁 viewmodel/
-│   └── 📄 TodoViewModel.kt     # ViewModel to handle UI data.
-├── 📁 jetpack/
-│   ├── 📄 FullScreenDialog.kt  # Compose function for adding new tasks.
-│   └── 📄 TodoListScreen.kt    # Compose function to display and manage the to-do list.
-└── 📄 MainActivity.kt          # Entry point for the app.
+![{540A66C2-8509-4F3F-A62A-D17E0302A86A}](https://github.com/user-attachments/assets/01cee233-60cb-4ecf-aa7d-2b594a152460)
 
 ## Screenshots 
 
